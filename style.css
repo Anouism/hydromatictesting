@@ -1,0 +1,470 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:wght200,300,400,500,600,700,800,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-padding-top: 2rem;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+}
+
+:root{
+    --main-color: #2b9b83;
+    --second-color:#000000;
+}
+
+*::selection{
+    color: #fff;
+    background: var(--main-color);
+}
+
+section{
+    padding: 50px 10%;
+}
+
+img{
+    width: 100%;
+}
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    box-shadow: 0 4px 41px;
+    padding: 15px 10%;
+    transition: 0.2s;
+    z-index: 1000;
+}
+/* Container dasar untuk menyusun card */
+.varian {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Gaya dasar setiap card */
+.card {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    border-radius: 15px; /* Ujung gambar tumpul */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Gaya dasar untuk gambar */
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px; /* Pastikan ujung gambar tumpul */
+    transition: filter 0.3s ease-in-out; /* Efek blur halus */
+}
+
+/* Nama produk yang awalnya tidak terlihat */
+.card .product-name {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    opacity: 0; /* Sembunyikan awalnya */
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Efek hover pada card */
+.card:hover .product-name {
+    opacity: 1; /* Tampilkan nama produk saat di-hover */
+}
+
+/* Blur gambar lainnya ketika salah satu card di-hover */
+.varian:hover .card:not(:hover) img {
+    filter: blur(4px); /* Tambahkan blur ke gambar lain */
+}
+
+/* Tambahkan sedikit efek shadow */
+.card:hover {
+    transform: scale(1.05); /* Beri efek zoom ringan */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+}
+
+.btn {
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(90deg, #158d77, #ffffff);
+    overflow: hidden;
+    transition: background 0.3s, transform 0.2s;
+    text-decoration: none;
+    z-index: 1;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)) padding-box,
+                linear-gradient(90deg, #7b7f88, #7a7b7c, #787c86) border-box;
+    z-index: -1;
+    animation: borderAnimation 3s linear infinite;
+}
+
+@keyframes borderAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.btn:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img{
+    width: 150px;
+}
+
+.navbar {
+    display: flex;
+}
+
+.navbar a{
+    font-size: 1rem;
+    padding: 11px 20px;
+    color: var(--second-color);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.navbar a:hover {
+    color: var(--main-color);
+}
+
+#menu-icon{
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1001;
+    display: none;
+}
+
+.home{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background: #fff;
+    gap: 1rem;
+}
+
+.home-text {
+    flex: 1 1 17rem;
+}
+
+.home-image {
+    flex: 1 1 17rem;
+}
+
+
+.home-text h1{
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--second-color);
+}
+
+.home-text span{
+    font-size: 3.2rem;
+    color: var(--main-color);
+    font-weight: 600;
+    color: var(--second-color)
+}
+
+.home-text span{
+    font-size: 3.2rem;
+    color: var(--main-color);
+    font-weight: bolder;
+}
+
+.btn{
+    padding: 7px 16px;
+    border: 2px solid var(--second-color);
+    border-radius: 40px;
+    color: var(--second-color);
+    font-family: 500;
+}
+
+.btn:hover {
+    background: var(--main-color);
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.varian {
+    display: flex;
+    align-items: center;
+}
+
+.varian img {
+    width: 250px;
+}
+
+.product h1{
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 1000;
+    color: #186a65;
+    text-align: center;
+}
+.scroll-animation {
+    background-size: cover;
+    background-attachment: fixed;
+    animation: waterScroll 15s linear infinite;
+}
+
+.about{
+    display: flex;
+    flex-wrap: wrap;
+    background: #18958b;
+    gap: 1.5rem;
+}
+.advantages h2,
+.advantages h3 {
+    font-size: 2rem;
+    color: var(--second-color);
+    font-weight: bold;
+}
+
+.advantages h2,
+.advantages h3 {
+    margin-top: 2rem; /* Adds space above h3 */
+    margin-bottom: 0.5rem;
+}
+
+.advantages h2 {
+    font-size: 2rem;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.advantages h3 {
+    font-size: 1.5rem;
+    color: var(--second-color);
+    font-weight: bold;
+    margin-top: 2rem; /* Adds space above h3 */
+    margin-bottom: 0.5rem;
+}
+
+.advantages {
+    background-color: #ffffff; /* Sets the background to white */
+    padding: 50px 10%; /* Ensures consistency with other sections */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%; /* Expands to full width of the container */
+}
+
+.advantages h2 {
+    font-size: 2rem;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.advantages p {
+    font-size: 1rem;
+    color: var(--second-color);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: justify;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.about-img{
+    flex: 1 1 17rem;
+}
+
+.about-text{
+    flex: 1 1 17rem;
+    color: #fff;
+}
+
+.about-text h2{
+    font-size: 1.2rem;
+    color: #000000;
+}
+
+.about-text p{
+    margin: 0.5rem 0 1rem;
+    text-align: justify;
+}
+
+.about-text a{
+    color: silver;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    background-color: #000000; /* Optional: to distinguish the footer */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.media-social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.media-social a {
+    font-size: 27px;
+    color: white
+}
+
+.media-social a .bx {
+    padding: 5px;
+    color: #fff;
+    background: #577877;
+    border-radius: 50%;
+}
+
+.media-social a:hover {
+    color: white
+}
+
+.links {
+    margin: 1rem 0;
+}
+
+.links a {
+    margin:0 10px;
+    font-size: 16px;
+    font-weight: 500;
+    color: white
+}
+
+.links a:hover {
+    color: white
+}
+
+.contact p {
+    text-align: center;
+    margin-top: 1rem;
+    color: white
+}
+
+
+@media (max-width: 1150px) {
+    header {
+        padding: 18px 7%;
+    }
+    section {
+        padding: 50px 4%;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-text h1 {
+        font-size: 2rem;
+    }
+    header {
+        padding: 11px 4%;
+    }
+    #menu-icon {
+        display: initial;
+    }
+    header .navbar {
+        position: absolute;
+        top: -500%;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        box-shadow: 0 4px 4px;
+        border-top: 2px solid var(--main-color);
+        transition: 0.2s;
+        text-align: left;
+    }
+
+    .navbar .active {
+        top: 100%;
+    }
+    
+    .navbar a{
+        font-size: 1.2rem;
+        padding: 1rem;
+        display: block;
+        color: var(--second-color);
+    }
+}
+/* Scrolling water background animation */
+@keyframes waterScroll {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 100%;
+    }
+}
+
+/* Class for the water background */
+.scroll-animation {
+    position: relative;
+    background-image: url('image/water-background.jpg'); /* Replace with actual image path */
+    background-repeat: repeat;
+    background-size: cover;
+    animation: waterScroll 10s linear infinite;
+    background-attachment: fixed;
+}
+
+/* Optional overlay to control brightness */
+.scroll-animation::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.2); /* Adjust opacity if needed */
+    pointer-events: none;
+    z-index: -1;
+}
